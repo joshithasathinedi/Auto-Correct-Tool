@@ -1,0 +1,16 @@
+#AUTO CORRECT TOOL
+
+!pip install pyspellchecker
+from spellchecker import SpellChecker
+
+spell = SpellChecker()
+
+user_word = input("Enter a word: ")
+
+# Check if the word is misspelled
+if user_word not in spell:
+    # Get suggestions for corrected words
+    suggestions = spell.candidates(user_word)
+    print(f"Did you mean: {next(iter(suggestions))}?")
+else:
+    print("No spelling errors found.")
